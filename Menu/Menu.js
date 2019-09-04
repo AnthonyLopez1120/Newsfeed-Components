@@ -33,3 +33,39 @@ let menuItems = [
   Step 6: add the menu component to the DOM.
   
 */
+
+const menuContainer = document.querySelector('.header');
+menuContainer.appendChild(menuComponent);
+
+function menuComponent(){
+
+  const menuButton = document.createElement('div');
+  const list = document.createElement('ul');
+
+  const students = document.createElement('li')
+  const faculty = document.createElement('li')
+  const whatsNew = document.createElement('li')
+  const techTrends = document.createElement('li')
+  const music = document.createElement('li')
+  const logOut = document.createElement('li')
+
+  menuButton.classList.add('menu');
+
+  students.textContent = 'Students';
+  faculty.textContent = 'Faculty';
+  whatsNew.textContent = 'Whats New';
+  techTrends.textContent = 'Tech Trends';
+  music.textContent = 'Music';
+  logOut.textContent = 'Log Out';
+  
+  menuButton.appendChild(list);
+  list.appendChild(students);
+  list.appendChild(faculty);
+  list.appendChild(whatsNew);
+  list.appendChild(techTrends);
+  list.appendChild(music);
+  list.appendChild(logOut);
+
+  return menuButton;
+
+};
