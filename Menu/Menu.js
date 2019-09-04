@@ -37,7 +37,7 @@ let menuItems = [
 const menuContainer = document.querySelector('.header');
 menuContainer.appendChild(menuComponent);
 
-function menuComponent(){
+function menuComponent(menuItems){
 
   const menuButton = document.createElement('div');
   const list = document.createElement('ul');
@@ -65,6 +65,13 @@ function menuComponent(){
   list.appendChild(techTrends);
   list.appendChild(music);
   list.appendChild(logOut);
+
+  const clickMenu = document.querySelector('.menu-button');
+
+  clickMenu.addEventListener('click', event => {
+    console.log('button clicked', event.target);
+    clickMenu.classList.toggle('article-open');
+  });
 
   return menuButton;
 
