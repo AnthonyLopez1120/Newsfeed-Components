@@ -85,8 +85,21 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+
+  //NEW ARRAY ARTICLE
+  {
+    title: 'The Life and Times of a Coder',
+    date: 'Dec 21st, 2019',
+    firstParagraph: `Coding is so difficult `,
+
+    secondParagraph: `ONE WEEK LATER...Actually, its not to bad now `,
+
+    thirdParagraph: `LATER THAT DAY...I spoke too soon.`
   }
 ];
+
+
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
   
@@ -97,7 +110,7 @@ const data = [
     {three separate paragraph elements}
 
     <span class='expandButton'></span>
-  </div>
+  </div> 
 
   Hint: You will need to use createElement more than once here!
 
@@ -112,3 +125,44 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+const card = document.querySelector('.articles');
+
+data.map(stuff => {
+  card.appendChild(componentCreater(stuff.title, stuff.date, stuff.firstParagraph, stuff.secondParagraph, stuff.thirdParagraph));
+});
+
+function componentCreater(title, date, firstParagraph, secondParagraph, thirdParagraph){
+ 
+  const articles = document.createElement('div');
+  const articleTitle = document.createElement('h2');
+  const articleDate = document.createElement('date');
+  const para1 = document.createElement('p');
+  const para2 = document.createElement('p');
+  const para3 = document.createElement('p');
+  const button = document.createElement('span');
+ 
+articles.classList.add('article');
+articleDate.classList.add('date');
+button.classList.add('expandButton');
+
+articleTitle.textContent = title;
+articleDate.textContent = date;
+para1.textContent = firstParagraph;
+para2.textContent = secondParagraph;
+para3.textContent = thirdParagraph;
+button.textContent= 'words';
+
+articles.appendChild(articleTitle);
+articles.appendChild(articleDate);
+articles.appendChild(para1);
+articles.appendChild(para2);
+articles.appendChild(para3);
+articles.appendChild(button);
+
+button.addEventListener('click', event => {
+  console.log('button clicked', event.target);
+  articles.classList.toggle('article-open');
+ 
+})
+  return articles;
+};
