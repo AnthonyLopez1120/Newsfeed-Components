@@ -35,44 +35,29 @@ let menuItems = [
 */
 
 const menuContainer = document.querySelector('.header');
-menuContainer.appendChild(menuComponent);
+const clickMenu = document.querySelector('.menu-button');
 
 function menuComponent(menuItems){
 
   const menuButton = document.createElement('div');
   const list = document.createElement('ul');
 
-  const students = document.createElement('li')
-  const faculty = document.createElement('li')
-  const whatsNew = document.createElement('li')
-  const techTrends = document.createElement('li')
-  const music = document.createElement('li')
-  const logOut = document.createElement('li')
+   menuItems.forEach(items=>{
+    const listItem =document.createElement('li');
+    list.appendChild(listItem);
+    listItem.textContent = items;
+  });
+
 
   menuButton.classList.add('menu');
-
-  students.textContent = 'Students';
-  faculty.textContent = 'Faculty';
-  whatsNew.textContent = 'Whats New';
-  techTrends.textContent = 'Tech Trends';
-  music.textContent = 'Music';
-  logOut.textContent = 'Log Out';
   
   menuButton.appendChild(list);
-  list.appendChild(students);
-  list.appendChild(faculty);
-  list.appendChild(whatsNew);
-  list.appendChild(techTrends);
-  list.appendChild(music);
-  list.appendChild(logOut);
-
-  const clickMenu = document.querySelector('.menu-button');
-
+  
   clickMenu.addEventListener('click', event => {
     console.log('button clicked', event.target);
-    clickMenu.classList.toggle('article-open');
+    menuButton.classList.toggle('menu--open');
   });
 
   return menuButton;
-
 };
+menuContainer.appendChild(menuComponent(menuItems));
