@@ -88,6 +88,39 @@ const data = [
   }
 ];
 
+let card = document.querySelector('.articles');
+data.map(item=>{
+  card.appendChild(componentCreater(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph));
+});
+
+function componentCreater(a, b, c, d, e){
+    let main = document.createElement('div')
+    let title = document.createElement('h2')
+    let date = document.createElement('p')
+    let para1 = document.createElement('p')
+    let para2 = document.createElement('p')
+    let para3 = document.createElement('p')
+    let btn = document.createElement('span')
+
+    main.classList.add = 'article'
+    date.classList.add = 'date'
+    btn.classList.add = 'expandButton'
+
+    title.textContent = a
+    date.textContent= b
+    para1.textContent= c
+    para2.textContent= d
+    para3.textContent= e
+
+   main.appendChild(title);
+   main.appendChild(date);
+   main.appendChild(para1);
+   main.appendChild(para2);
+   main.appendChild(para3);
+   main.appendChild(btn);
+
+return main;
+}
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
   
   <div class="article">
