@@ -102,15 +102,16 @@ function componentCreater(a, b, c, d, e){
     let para3 = document.createElement('p')
     let btn = document.createElement('span')
 
-    main.classList.add = 'article'
-    date.classList.add = 'date'
-    btn.classList.add = 'expandButton'
+    main.classList.add('article')
+    date.classList.add('date')
+    btn.classList.add('expandButton')
 
     title.textContent = a
     date.textContent= b
     para1.textContent= c
     para2.textContent= d
     para3.textContent= e
+    btn.textContent = 'Expand'
 
    main.appendChild(title);
    main.appendChild(date);
@@ -118,6 +119,10 @@ function componentCreater(a, b, c, d, e){
    main.appendChild(para2);
    main.appendChild(para3);
    main.appendChild(btn);
+
+   btn.addEventListener('click', event =>{
+     main.classList.toggle('article-open')
+   })
 
 return main;
 }
