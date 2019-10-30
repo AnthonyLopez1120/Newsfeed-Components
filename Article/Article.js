@@ -85,9 +85,58 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
-  }
+  },
+
+ { 
+  title: 'The Life and Times of Times and Life',
+  date: 'Feb 29, 2020',
+  firstParagraph: `Time is a man made construct `,
+
+  secondParagraph: `Life is subjective `,
+
+  thirdParagraph: `Both are about as serious as a speck of dust on a cookie`
+},
+
 ];
 
+let card = document.querySelector('.articles');
+data.map(item=>{
+  card.appendChild(componentCreater(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph));
+});
+
+function componentCreater(a, b, c, d, e){
+    let main = document.createElement('div')
+    let title = document.createElement('h2')
+    let date = document.createElement('p')
+    let para1 = document.createElement('p')
+    let para2 = document.createElement('p')
+    let para3 = document.createElement('p')
+    let btn = document.createElement('span')
+
+    main.classList.add('article')
+    date.classList.add('date')
+    btn.classList.add('expandButton')
+
+    title.textContent = a
+    date.textContent= b
+    para1.textContent= c
+    para2.textContent= d
+    para3.textContent= e
+    btn.textContent = 'Expand'
+
+   main.appendChild(title);
+   main.appendChild(date);
+   main.appendChild(para1);
+   main.appendChild(para2);
+   main.appendChild(para3);
+   main.appendChild(btn);
+
+   btn.addEventListener('click', () =>{
+     main.classList.toggle('article-open')
+   })
+
+return main;
+}
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
   
   <div class="article">
