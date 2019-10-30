@@ -85,7 +85,18 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
-  }
+  },
+
+ { 
+  title: 'The Life and Times of Times and Life',
+  date: 'Feb 29, 2020',
+  firstParagraph: `Time is a man made construct `,
+
+  secondParagraph: `Life is subjective `,
+
+  thirdParagraph: `Both are about as serious as a speck of dust on a cookie`
+},
+
 ];
 
 let card = document.querySelector('.articles');
@@ -120,7 +131,7 @@ function componentCreater(a, b, c, d, e){
    main.appendChild(para3);
    main.appendChild(btn);
 
-   btn.addEventListener('click', event =>{
+   btn.addEventListener('click', () =>{
      main.classList.toggle('article-open')
    })
 
